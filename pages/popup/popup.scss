@@ -1,0 +1,170 @@
+@import url(../../fonts/arial/stylesheet.css);
+@import url(../../fonts/georgian/stylesheet.css);
+
+
+
+$colorBorder: #F1CDB3;
+$colorTextWhite: #FFFFFF;
+$colorGrey: #CDCDCD;
+$colorGreyBlack: #545454;
+$backgraundPets: #F6F6F6;
+$colorSubAbout: #4C4C4C;
+$colorDonationText: #B2B2B2;
+$colorFa: #FAFAFA;
+$color29: #292929;
+
+$px44: 3.4375vw; //3.4375vw;
+$px35: 2.734vw; //2.734vw;
+$px32: 2.5vw; //2.5vw;
+$px20: 1.56vw; //1.56vw;
+$px17: 1.328vw; //1.328vw;
+$px15: 1.17vw; //1.17vw;
+$px13: 1vw; //1vw;
+$px12: 0.9375vw; //0.9375vw;
+$px11: 0.859vw; //0.859vw;
+
+%hoverFilter{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+%border {
+    border: 0.16vw solid $colorBorder;
+}
+
+
+@mixin parentFlex ($position) {
+    display: flex;
+    flex-direction: $position;
+    justify-content: space-between;
+}
+@mixin font($sp, $line) {
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: $sp;
+    line-height: $line;
+}
+
+*{
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+    font-family: Georgia;
+    @include font(0.06em, 160%); 
+    font-size: $px15;
+    @media only screen and (min-width: 1280px) {
+        font-size: 15px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        font-size: 1.95vw;
+        }
+        @media only screen and (min-width: 320px)and (max-width: 767px) {
+            font-size: 4.6875vw;
+            }
+            @media only screen and (max-width: 319px) {
+                font-size: 15px;
+                }
+}
+
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(41, 41, 41, 0.6);
+    opacity: 0; // Скрываем фон и сам попап
+    pointer-events: none; // Запрещаем ему быть целью событий
+    transition: 0.5s all;
+}
+
+.popup__bg.active { // При добавлении класса 'active'
+    opacity: 1; // Показываем фон и попап
+    pointer-events: all; // Возвращаем события
+    transition: 0.5s all;
+    width: 100%;
+    height: 100%;
+
+}
+
+.popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    background: rgba(0, 0, 0, 0);
+    width: 74.375vw;
+    height: 43.125vw;
+    transition: 0.5s all;
+        .close{
+            margin-left: 94%;
+            width: 5.89%;
+            height: 10%;
+            @extend %border;
+            border-radius: 7.8vw;
+            background: rgba(0, 0, 0, 0);
+        }
+        .popup_content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 94.538%;
+            height: 90.57971%;
+            box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+            background-color: #F6F6F6;
+            border-radius: 0.7vw;
+            .img_popup{
+               width: 55.55%; 
+               height: 100%;
+            }
+            .text_popup{
+                display: flex;
+                flex-direction: column;
+                width: 39%; 
+                height: 72.4%; 
+                margin-right: 2.22%;
+                margin-top: 5.55%;
+                .name{
+                    width: 100%;
+                    height: 12.43%;
+                    font-size: $px35;
+                    margin-bottom: 3.8%;
+                    @include font(0.06em, 130%);
+                }
+                .type{
+                    width: 100%;
+                    height: 6.35%;
+                    font-size: $px20;
+                    margin-bottom: 10%;
+                    @include font(0.06em, 115%)
+                }
+                .description{
+                    width: 100%;
+                    height: 28.177%;
+                    margin-bottom: 10%;
+                    @include font(0.06em, 100%)
+                }
+                ul{
+                    width: 43.87%;
+                    height: 28.2%;
+                    margin-left: 5%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    li{
+                        height: 17.57%;
+                    }
+                }  
+            }        
+        }
+    }
+    
+
+.popup.active { // При добавлении класса 'active'
+    transform: translate(-50%, -50%) scale(1); // Так же центрируем и плавно увеличиваем
+    transition: 0.5s all;
+}
+
+
+
+

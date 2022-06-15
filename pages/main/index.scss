@@ -1,0 +1,1445 @@
+
+@import url(../../fonts/arial/stylesheet.css);
+@import url(../../fonts/georgian/stylesheet.css);
+
+
+
+$colorBorder: #F1CDB3;
+$colorTextWhite: #FFFFFF;
+$colorGrey: #CDCDCD;
+$colorGreyBlack: #545454;
+$backgraundPets: #F6F6F6;
+$colorSubAbout: #4C4C4C;
+$colorDonationText: #B2B2B2;
+$colorFa: #FAFAFA;
+$color29: #292929;
+
+%hoverFilter{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+%border {
+    border: 0.16vw solid $colorBorder;
+}
+
+
+@mixin parentFlex ($position) {
+    display: flex;
+    flex-direction: $position;
+    justify-content: space-between;
+}
+@mixin font($sp, $line) {
+    font-style: normal;
+    font-weight: 400;
+    letter-spacing: $sp;
+    line-height: $line;
+}
+
+body {   
+    position: relative;
+    width: 100%;
+    height: 296.56vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    @media only screen and (min-width: 1280px) {
+        height: 3796px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 688.93vw;
+        }
+        @media only screen and (min-width: 320px)and (max-width: 767px) {
+        height: 1463.75vw;
+        }
+        @media only screen and (max-width: 319px) {
+            width: 319px;
+            height: 4684px;
+            }
+
+}
+
+.bg { 
+    background: rgba(41, 41, 41, 0.6);
+    pointer-events: all; 
+    transition: 0.5s all;
+    position: fixed;
+    top: 0;
+    z-index: 100;
+    width: 100%;
+    height: 100%;
+}
+*{
+    box-sizing: border-box;
+    padding: 0%;
+    margin: 0%;
+    font-family: Georgia;
+    @include font(0.06em, 160%); 
+    @media only screen and (min-width: 1280px) {
+        font-size: 15px;
+    }
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        font-size: 1.95vw;
+        }
+        @media only screen and (min-width: 320px)and (max-width: 767px) {
+            font-size: 4.6875vw;
+            }
+            @media only screen and (max-width: 319px) {
+                font-size: 15px;
+                }
+}
+a {
+    text-decoration: none;
+    outline: none;
+ }
+
+//  WRAPPER
+//  =================================================== 
+.wrapper{
+    height: 100%;
+    width: 93.75%;
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    @media only screen and (min-width: 1280px) {
+        width: 1200px;
+    }
+}
+body.burger{
+    background: rgba(97, 95, 95, 0.6);
+    transition: 0.5s all;
+}
+
+// HEADER
+// =================================================== 
+
+header{
+    position: absolute;
+    height: 1.58%;
+    width: 100%;
+    top: 1.58%;
+    z-index: 1000;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 1.134%;
+        top: 0.567%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 1.2809%;
+            top: 0.64%;
+            }
+}
+#header_content{
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    @media only screen and (max-width: 767px) {
+        width: 86.67%;
+        }
+
+    a{
+        height: 100%;
+        width: 17%;
+        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+            width: 27%;
+            }
+            @media only screen and (max-width: 767px) {
+                width: 72%;
+                }
+            h1{
+                @include font(0.06em, 110%);
+                color: $colorBorder;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 32px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 4.17vw;
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px){
+                        font-size: 10vw;
+                        }
+                        @media only screen and (max-width: 319px){
+                            font-size: 32px;
+                            }
+            }
+            p {
+                font-family: Arial; 
+                letter-spacing: 0.02em;
+                color: $colorTextWhite;
+            }
+    }
+}
+#menu {
+    display: flex;
+    width: 37%;
+    height: 50%;
+    margin-top: auto;
+    margin-bottom: auto;
+    justify-content: space-between;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        width: 62.575%;
+        }
+        @media only screen and (max-width: 767px){
+            display: none;
+            }
+        li {
+            list-style-type: none;
+            a{
+                height: 100%;  
+                font-family: Arial; 
+                text-align: left;
+                letter-spacing: 0.02em;
+                color: $colorGrey;
+                opacity: 0.8;
+                &:hover{
+                    cursor: pointer;
+                    opacity: 1;
+                }
+            }
+        }
+}
+.active{
+    border-bottom: 0.2vw solid $colorBorder;
+    opacity: 1;
+}
+
+//  BURGER
+//  ==================================================
+
+#header_content.open {
+    position: fixed;
+    display: flex;
+    flex-wrap: wrap;
+    width: 320px;
+    top: 0%;
+    height: 100%;
+    right: 0%;
+    background: #211F20;
+    transition: linear .5s;
+    a{
+        height: 75px;
+        width: 220px;
+        margin: 10px auto;
+            h1{
+                    font-size: 35px;
+            }
+            p {
+                font-size: 15px
+            }
+    }
+  }
+  #menu.open {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 320px;
+    top: 100px;
+            li{
+
+                height: 55px;
+                padding-left: 10%;
+                a{
+                    font-size: 25px;
+                    color: $colorBorder;
+                    font-family: Georgia;
+                }
+        }
+  }
+  
+#contain {
+    display: inline-block;
+    width: 13.5%;
+    height: 70%;
+    margin-top: auto;
+    margin-bottom: auto;
+    cursor: pointer;
+    @media only screen and (min-width: 768px) {
+        display: none;
+    }
+  }
+  
+.bar1, .bar2, .bar3 {
+    width: 85%;
+    height: 5%;
+    background-color: $colorBorder;
+    margin: 20% 0;
+  }
+  
+#contain.change{
+    transform: rotate(90deg);
+    transition: linear 0.5s;
+    width: 50px;
+    height: 50px;
+    margin: 20px auto;
+}
+
+//  START
+//  ===================================================
+#start{
+    width: 100%;
+    height: 23.92%;
+    background: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), #211F20;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+    background-image: url("../../img/start-screen-background.jpg");
+    background-size: cover;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 22.019%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 17.57%;
+            }
+}
+#start_page{
+    width: 100%;
+    height: 80.18%;
+    margin-top: 15%;
+    @include parentFlex (row);
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        width: 80.367%;
+        height: 87.12%;
+        margin-top: 21%;
+        margin-left: auto;
+        margin-right: auto;
+        flex-direction: column;
+        }
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            height: 81.774%;
+            margin-top: 50%;
+            flex-direction: column;
+            }
+        div{
+            width: 38.8%;
+            height: 44.23%;
+            @include parentFlex (column);
+            margin-top: 13.33%;
+            @media only screen and (max-width: 1279px) {
+                width: 80.84%;
+                height: 31.72%;
+                margin: 0% auto;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                    height: 44%;
+                    margin: 0% auto;
+                    text-align: center;
+                    }
+            .title{
+                width: 75%;
+                height: 35.4%;
+                @include font(0.06em, 130%);
+                color: $colorTextWhite;
+                font-family: Georgia;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 44px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 5.729vw;
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px) {
+                        font-size: 7.8125vw;
+                        }
+                        @media only screen and (max-width: 319px) {
+                            font-size: 25px;
+                            }
+                            @media only screen and (max-width: 767px) {
+                                width: 100%;
+                                height: 21.622%;
+                                margin: 0% auto;
+                            }
+            }
+                p{
+                    width: 100%;
+                    height: 22.4%;    
+                    font-family: Arial; 
+                    color: $colorGrey;
+                    @media only screen and (max-width: 767px) {
+                        height: 32.43%;
+                        }
+                }
+                
+                a{
+                    width: 45.1%;
+                    padding: 3% 11.3%;
+                    background: $colorBorder;
+                    @include font(0.0em, 130%);
+                    border-radius: 7.8vw;
+                    color: $colorGreyBlack;
+                    @media only screen and (min-width: 1280px) {
+                        font-size: 17px;
+                    }
+                    @media only screen and (max-width: 1279px) {
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        font-size: 2.2vw;
+                        }
+                        @media only screen and (min-width: 320px)and (max-width: 767px) {
+                            font-size: 5.3125vw;
+                            }
+                            @media only screen and (max-width: 319px) {
+                                font-size: 17px;
+                                }
+                                @media only screen and (max-width: 767px) {
+                                    width: 69%;
+                                    padding: 5% 11.3%;
+                                    }
+                        &:hover{
+                            cursor: pointer;
+                        }
+                        &:active{
+                            background: lighten($colorBorder, 5%);
+                        }
+            }
+        }   
+        img{
+            width: 58.17%;
+            height: 100%;
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 100%;
+                height: 58.42%;
+                margin-left: 12.3%;   
+            }
+            @media only screen and (max-width: 767px) {
+                width: 86.67%;
+                height: 40.382%;
+                margin-left: 13.335%;
+                }
+        }
+}
+
+
+//  ABOUT
+//  ===================================================
+#about{
+    height: 15.49%;
+    width: 100%;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 19.807%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 20.794%;
+            }
+}
+#about_content{
+    width: 100%;
+    height: 69.39%;
+    margin-top: 6.67%;
+    @include parentFlex(row);
+    @media only screen and (max-width: 1279px) {
+        width: 60.723%;
+        height: 82.82%;
+        margin: 11.3% auto;
+        flex-direction: column;
+        }
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            height: 91.3758%;
+            margin: 13% auto;
+            flex-direction: column;
+            }
+        img{
+            width: 25%;
+            height: 100%;
+            margin-left: 14.59%;
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 68.65%;
+                height: 47%;
+                margin: 0% auto;
+                order: 2;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 86.67%;
+                    height: 39.73%;
+                    margin: 0% auto;
+                    order: 2;
+                    }
+        }
+        div{
+            width: 35.8%;
+            height: 93.14%;
+            margin-right: 14.59%;
+            @include parentFlex(column);
+            margin-top: auto;
+            margin-bottom: auto;
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 98.34%;
+                height: 43.779%;
+                margin: 0%;
+                order: 1;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                    height: 55.506%;
+                    margin: 0%;
+                    text-align: justify;
+                    }
+                .about_title{
+                    width: 86%;
+                    height: 23.7%;
+                    @include font(0.06em, 130%);  
+                    color: $colorSubAbout;
+                    font-family: Georgia;
+                    @media only screen and (min-width: 1280px) {
+                    font-size: 35px;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        font-size: 4.55vw;
+                        }
+                        @media only screen and (min-width: 320px)and (max-width: 767px) {
+                            font-size: 7.8125vw;
+                            }
+                            @media only screen and (max-width: 319px) {
+                                font-size: 25px;
+                                }
+                                @media only screen and (max-width: 767px) {
+                                    width: 100%;
+                                    height: 12.955%;
+                                    text-align: center;
+                                    margin: 0% auto;
+                                }
+
+                }
+                p{
+                    width: 100%;
+                    height: 25.26%;
+                    font-family: Arial; 
+                    letter-spacing: 0.001em; 
+                    color: $colorSubAbout;
+                    @media only screen and (max-width: 767px) {
+                        width: 90%;
+                        height: 29.153%;
+                        margin: 0% auto;
+                        }
+                }
+                .sub_text{
+                    width: 100%;
+                    height: 37.89%;
+                    font-family: Arial; 
+                    letter-spacing: 0.001em; 
+                    color: $colorSubAbout;
+                    @media only screen and (max-width: 767px) {
+                        width: 90%;
+                        height: 48.383%;
+                        margin: 0% auto;
+                        }
+                }
+        }
+}
+
+// PETS
+//  ===================================================
+#pets{
+    height: 23.13%;
+    width: 100%;
+    background: $backgraundPets;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 16.575%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 16.887%;
+            }
+}
+#pets_content{
+    width: 100%;
+    height: 79.475%;
+    margin-top: 6.67%;
+    @include parentFlex(column);
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        margin-top: 11.8%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 89.38%;
+            margin-top: 14%;
+            }
+        p{
+            width: 40%;
+            height: 12.91%;
+            margin: 0 auto;
+            text-align: center;
+            @include font(0.06em, 130%); 
+            color: $colorGreyBlack;
+            @media only screen and (min-width: 1280px) {
+                font-size: 35px;
+            }
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 56.6%;
+                height: 12.91%;
+                font-size: 4.17vw;
+                @include font(0.107em, 130%); 
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    width: 100%;
+                    height: 9.055%;
+                    font-size: 7.8125vw;
+                    @include font(0.06em, 130%);
+                    }
+                    @media only screen and (max-width: 319px) {
+                        width: 100%;
+                        height: 9.055%;
+                        font-size: 25px;
+                        @include font(0.06em, 130%);
+                        }
+        }
+        a{
+            background: $colorBorder;
+            border-radius: 7.8vw;
+            padding: 1.25% 3.9%;
+            margin: 0 auto;
+            text-align: center;
+            @include font(0.06em, 130%); 
+            color: $colorGreyBlack;
+            @media only screen and (min-width: 1280px) {
+                font-size: 17px;
+            }
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                font-size: 1.95vw;
+                padding: 2.3% 7.5%;
+                @include font(0.107em, 130%);
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    font-size: 5.3125vw;
+                    padding: 4.86% 14.72%;
+                    @include font(0.06em, 130%);
+                    }
+                    @media only screen and (max-width: 319px) {
+                        font-size: 17px;
+                        padding: 4.86% 14.72%;
+                        @include font(0.06em, 130%);
+                        }
+            &:hover{
+                cursor: pointer;
+            }
+            &:active{
+                background: lighten($colorBorder, 5%);
+            }
+        }   
+        .pets_cards_conteiner{
+            width: 100%;
+            height: 62.41%;
+            @include parentFlex(row);
+            align-items: center;
+            @media only screen and (max-width: 767px) {
+                width: 90%;
+                height: 73%;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+                margin: 0% auto;
+                }       
+            button {
+                width: 4.33%;
+                height: 11.95%;
+                @extend %border;
+                border-radius: 7.8vw;
+                background: rgba(0, 0, 0, 0);
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    width: 7.345%;
+                    height: 11.954%;
+                    }  
+                    @media only screen and (max-width: 767px) {
+                        width: 19.259%;
+                        height: 10.256%;
+                        order: 2;
+                        }  
+                &:hover {
+                    cursor: pointer;
+                }
+                &:active {
+                    background: lighten($colorBorder, 25%);
+                }
+            }
+            .pets_card{
+                width: 22%;
+                height: 100%;
+                margin-left: 3%;
+                margin-right: 3%;
+                display: flex;
+                background: $backgraundPets;
+                border-radius: 0.7vw;
+                @include parentFlex(column);
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    width: 38.5%;
+                    height: 100%;
+                    }
+                    @media only screen and (max-width: 767px) {
+                        width: 100%;
+                        height: 85.799%;
+                        margin: 0%;
+                        justify-content: space-between;
+                        order: 1;
+                        }  
+                &:hover{
+                    transition: 0.4s;
+                    @extend %hoverFilter;
+                    cursor: pointer;
+                    div{
+                        transition: 0.4s;
+                        @extend %hoverFilter;
+                        cursor: pointer;
+                    }
+                }
+                img{
+                    width: 99.9%;
+                    height: 63%;
+                    border-radius: 0.7vw 0.7vw;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+                .pets-name{
+                    width: 100%;
+                    height: 5%;
+                    @include font(0.06em, 1.6vw); 
+                    color: $colorGreyBlack;
+                    @media only screen and (min-width: 1280px) {
+                        font-size: 20px;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        font-size: 2.6vw;
+                        }
+                        @media only screen and (min-width: 320px)and (max-width: 767px) {
+                            font-size: 6.25vw;
+                            }  
+                            @media only screen and (max-width: 319px) {
+                                font-size: 20px;
+                                }  
+                }
+                .btn{
+                    width: 70%;
+                    height: 11.954%;
+                    margin-left: auto;
+                    margin-right: auto;
+                    margin-bottom: 15%;
+                    @extend %border;
+                    border-radius: 7.8vw; 
+
+                    p{
+                        width: 70%;
+                        height: 50%;
+                        margin-top: 7%;
+                        @include font(0.04em, 130%);
+                        color: $colorGreyBlack;
+                        font-size: 17px;
+                        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                            font-size: 2.2vw;
+                            }
+                            @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                font-size: 5.3125vw;
+                                }
+                                @media only screen and (max-width: 319px) {
+                                    font-size: 17px;
+                                    }
+                    }
+                    @media only screen and (max-width: 1279px) {
+                        border: 0.3vw solid $colorBorder;
+                        }
+                }
+            }
+
+        }
+}
+
+// HELP
+//  ===================================================
+#help{
+    height: 16.1%;
+    width: 100%;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 14.723%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 15.905%;
+            }
+}
+#help_content{
+    width: 100%;
+    height: 70.55%;
+    margin-top: 6.67%;
+    @include parentFlex(column);
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        width: 88.89%;
+        height: 74.969%;
+        margin: 11.3% auto;
+        }
+        @media only screen and (max-width: 767px) {
+            width: 100%;
+            height: 100%;
+            margin: 0%;
+            }
+        p{
+            width: 26%;
+            height: 21.79%;
+            margin: 0 auto;
+            text-align: center;
+            @include font(0.05em, 130%); 
+            color: $colorGreyBlack;
+            @media only screen and (min-width: 1280px) {
+            font-size: 35px;
+            }
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 48.943%;
+                height: 15.414%;
+                font-size: 4.55vw;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 73.333%;
+                    height: 8.593%;
+                    font-size: 7.8125vw;
+                    margin-top: 12%;
+                    }
+        }
+        div{
+            width: 85.5%;
+            height: 65.2%;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 100%;
+                height: 74.958%;
+                justify-content: space-between;
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    font-size: 7.8125vw;
+                    }
+                    @media only screen and (max-width: 319px) {
+                        font-size: 15px;
+
+                        }
+                        @media only screen and (max-width: 767px) {
+                            width: 100%;
+                            height: 75.4966%;
+                            margin-bottom: 14%;
+                            }
+            div{
+                width: 11.62%;
+                height: 40.21%;
+                margin: 0%;
+                @media only screen and (max-width: 1279px) {
+                    display: none;
+                    }
+
+            }
+            .end_help{
+                display: none;
+                width: 48.53%;
+                height: 15.47%;
+                @media only screen and (max-width: 767px) {
+                    display: flex;
+                    }
+
+            }
+            a{
+                height: 40.21%;
+                margin-bottom: 5%;
+                @include parentFlex(column);
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    width: 26.984%;
+                    height: 25.5%;
+                    margin-bottom: 10%;
+                    }
+                    @media only screen and (max-width: 767px) {
+                        width: 48.53%;
+                        height: 15.47%;
+                        justify-content:space-around
+                        }
+                &:hover{
+                    cursor: pointer;
+                }
+                    p{
+                        width: 100%;
+                        @include font(0.05em, 115%); 
+                        color: $colorGreyBlack;
+                        @media only screen and (min-width: 1280px) {
+                            font-size: 20px;
+                        }
+                        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                            font-size: 2.6vw;
+                            }
+                            @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                font-size: 4.6875vw;
+                                }
+                                @media only screen and (max-width: 319px) {
+                                    font-size: 20px;
+                                    }
+                    }
+                    img{
+                        margin-left: auto;
+                        margin-right: auto;
+                        width: 70%;
+                        height: 60%;
+                    }
+            }
+        }
+}
+
+// DONATION
+//  ===================================================
+#donation{
+    height: 12.17%;
+    width: 100%;
+    background: $backgraundPets;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 14.7987%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 11.576%;
+            }
+}
+#donation_content{
+    width: 76.25%;
+    height: 61.04%;
+    margin: 6.67% auto;
+    @include parentFlex(row);
+    @media only screen and (max-width: 1279px) {
+        width: 100%;
+        height: 100%;
+        flex-direction: column;
+        margin: 0%;
+        }
+        img{
+            width: 55.2%;
+            height: 92.55%;
+            margin-top: auto;
+            margin-bottom: auto;
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 71.327%;
+                height: 33.333%;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 86.667%;
+                    height: 24.9354%;
+                    }
+                    @media only screen and (max-width: 1279px) {
+                        margin-top: 7%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        order: 2;
+                        }
+                
+        }
+        div{
+            width: 41.6%;
+            height: 100%;
+            @include parentFlex(column);
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                width: 53.672%;
+                height: 36.015%;
+                }
+                @media only screen and (max-width: 767px) {
+                    width: 100%;
+                    height: 51.826%;
+                    }
+                    @media only screen and (max-width: 1279px) {
+                        margin-top: 11.9%;
+                        margin-left: auto;
+                        margin-right: auto;
+                        order: 1;
+                        }
+            .content_title{
+                width: 78.95%;
+                height: 31.92%;
+                @include font(0.06em, 130%);
+                color: $colorGreyBlack;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 35px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 4.55vw;
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px) {
+                        width: 100%;
+                        height: 22.755%;
+                        font-size: 7.8125vw;
+                        text-align: center;
+                        }
+                        @media only screen and (max-width: 319px) {
+                            width: 100%;
+                            height: 22.755%;
+                            font-size: 25px;
+                            text-align: center;
+                            }
+            }
+            p{
+                width: 86.79%;
+                height: 6%;
+                @include font(0.06em, 110%); 
+                color: $colorGreyBlack;
+                @media only screen and (max-width: 767px) {
+                    width: 91%;
+                    height: 8.544%;
+                    @include font(0.01em, 110%);
+                    margin: 0% auto;
+                    }
+            }
+            a{
+                width: 92%;
+                height: 15.25%;
+                padding: 0 4.3%;
+                @include parentFlex(row);
+                background: $colorBorder;
+                border-radius: 0.7vw;
+                border: none;
+                @media only screen and (max-width: 767px) {
+                    margin: 0% auto;
+                    border-radius: 2.8vw;
+                    }
+                &:hover{
+                    cursor: pointer;
+                }
+                &:active{
+                    background: lighten($colorBorder, 5%);
+                }
+                p{
+                    width: 87%;
+                    height: 53.5%;
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    @include font(0.06em, 115%); 
+                    color: $colorGreyBlack;
+                    @media only screen and (min-width: 1280px) {
+                        font-size: 20px;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        font-size: 2.6vw;
+                        }
+                        @media only screen and (min-width: 320px)and (max-width: 767px) {
+                            font-size: 4.6875vw;
+                            }
+                            @media only screen and (max-width: 319px) {
+                                font-size: 15px;
+                                }
+                                @media only screen and (max-width: 1279px) {
+                                    order: 2;
+                                    }
+                }
+                img{
+                    width: 9%;
+                    margin: auto;
+                    height: 53.5%;
+                }
+
+            }
+            .donation_content_text{
+                height: 25.5%;
+                @include font(0em, 160%); 
+                font-style: italic;
+                font-family: Arial;  
+                color: $colorDonationText;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 11px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 1.43vw;
+                    @include font(0.03em, 160%); 
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px) {
+                        font-size: 3.75vw;
+                        height: 32.03%;
+                        @include font(0.0em, 160%); 
+                        }
+                        @media only screen and (max-width: 319px) {
+                            font-size: 12px;
+                            height: 32.03%;
+                            @include font(0.0em, 160%); 
+                            }
+            }
+        }
+}
+// FOOTER
+//  ===================================================
+ footer{
+    height: 9.22%;
+    width: 100%;
+    background: radial-gradient(110.67% 538.64% at 5.73% 50%, #513D2F 0%, #1A1A1C 100%), #211F20;
+    background-image: url("../../img/footer-background.png");
+    background-size: cover;
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        height: 12.077%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 17.2715%;
+            }
+}
+#footer_content{
+    width: 100%;
+    height: 88.57%;
+    margin-top: 3%;
+    @include parentFlex(row);
+    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+        flex-wrap: wrap;
+        justify-content: space-around;
+        height: 100%;
+        }
+        @media only screen and (max-width: 767px) {
+            height: 96.3%;
+            margin-top: 9%;
+            flex-direction: column;
+            justify-content: space-between;
+            }
+    .contacts{
+        width: 23.17%;
+        height: 75.5%;
+        margin-top: 1.3%;
+        @include parentFlex(column); 
+        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+            width: 39.265%;
+            height: 36.62%;
+            }
+            @media only screen and (max-width: 767px) {
+                width: 92.67%;
+                height: 25.806%;
+                text-align: center;
+                margin: 0% auto;
+                }
+        div{
+            width: 100%;
+            height: 38.5%;
+            @include font(0.05em, 130%); 
+            color: $colorTextWhite;
+            @media only screen and (min-width: 1280px) {
+                font-size: 35px;
+            }
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                font-size: 4.55vw;
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    font-size: 7.8125vw;
+                    height: 30.769%;
+                    }
+                    @media only screen and (max-width: 319px) {
+                        font-size: 25px;
+                        height: 30.769%;
+                        }
+        }
+        a{
+            width: 93%;
+            height: 15%;
+            @include parentFlex(row);
+            align-items: center;
+            @media only screen and (max-width: 767px) {
+                margin: 0% auto;
+                }
+            img{
+                width: 15%;
+                height: 100%;
+                margin-left: 0%;
+                margin-top: 0%;
+            }
+            p{
+                width: 78%;
+                @include font(0.06em, 115%); 
+                color: $colorBorder;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 20px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 2.6vw;
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px) {
+                        font-size: 6.25vw;
+                        }
+                        @media only screen and (max-width: 319px) {
+                            font-size: 20px;
+                            }
+            }
+        } 
+    }
+    .location{
+        width: 25.17%;
+        height: 75.5%;
+        margin-top: 1.3%;
+        @include parentFlex(column); 
+        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+            width: 42.6%;
+            height: 36.62%;
+            }
+            @media only screen and (max-width: 767px) {
+                width: 100%;
+                height: 26%;
+                text-align: center;
+                justify-content: space-between;
+                }
+        div{
+            width: 100%;
+            height: 38.5%;
+            @include font(0.05em, 130%); 
+            color: $colorTextWhite;
+            @media only screen and (min-width: 1280px) {
+                font-size: 35px;
+            }
+            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                font-size: 4.55vw;
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    font-size: 7.8125vw;
+                    width: 90%;
+                    height: 30.769%;
+                    margin: 0% auto;
+                    }
+                    @media only screen and (max-width: 319px) {
+                        font-size: 25px;
+                        width: 90%;
+                        height: 30.769%;
+                        margin: 0% auto;
+                        }
+        }
+        a{
+            width: 100%;
+            height: 15%;
+            @include parentFlex(row);
+            align-items: center;
+            img{
+                width: 7.3%;
+                height: 100%;
+                margin-left: 0%;
+                margin-top: 0%;
+            }
+            p{
+                width: 86%;
+                @include font(0.06em, 115%); 
+                color: $colorBorder;
+                @media only screen and (min-width: 1280px) {
+                    font-size: 20px;
+                }
+                @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                    font-size: 2.6vw;
+                    }
+                    @media only screen and (min-width: 320px)and (max-width: 767px) {
+                        font-size: 6.25vw;
+                        }
+                        @media only screen and (max-width: 319px) {
+                            font-size: 20px;
+                            }
+            }
+        } 
+    }
+    img{
+        width: 25%;
+        height: 100%;
+        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+            width: 42.37%;
+            height: 48.52%;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 6%;
+            }
+            @media only screen and (max-width: 767px) {
+                width: 86.67%;
+                height: 33.375%;
+                margin-left: auto;
+                margin-right: auto;
+                }
+    }
+}
+
+// POPUP
+
+.popup__bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(41, 41, 41, 0.6);
+    opacity: 0; 
+    pointer-events: none; 
+    transition: 0.5s all;
+}
+
+.popup__bg.active { 
+    opacity: 1; 
+    pointer-events: all; 
+    transition: 0.5s all;
+    width: 100%;
+    height: 100%;
+    &:hover{
+        cursor: pointer;
+    }
+
+}
+
+.popup {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    top: 50%;
+    left: 50%;
+    background: rgba(0, 0, 0, 0);
+    width: 74.375vw;
+    height: 43.125vw;
+    transition: 0.5s all;
+    @media only screen and (max-width: 767px) {
+        width: 84.6875vw;
+        height: 122.8125vw;
+        }
+        .close{
+            margin-left: 94%;
+            font-size: 15px;
+            @extend %border;
+            border-radius: 7.8vw;
+            background: rgba(0, 0, 0, 0);
+            &:hover{
+                cursor: pointer;
+            }
+            @media only screen and (min-width: 768px) {
+                width: 5.89%;
+                height: 10%;
+                }
+                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                    width: 52px;
+                    height: 52px;
+                    }
+
+        }
+        .popup_content{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 94.538%;
+            height: 90.57971%;
+            background-color: #F6F6F6;
+            border-radius: 0.7vw;
+            .img_popup{
+               width: 55.55%; 
+               height: 100%;
+               @media only screen and (max-width: 767px) {
+                display: none;
+                }
+            }
+            .text_popup{
+                display: flex;
+                flex-direction: column;
+                width: 39%; 
+                height: 72.4%; 
+                margin-right: 2.22%;
+                margin-top: 5.55%;
+                @media only screen and (max-width: 767px) {
+                    width: 95%;
+                    margin: 0% auto; 
+                    height: 100%;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        width: 41.269%; 
+                        height: 86.57%; 
+                        margin: 1% auto;
+                        }
+                .name{
+                    width: 100%;
+                    height: 12.43%;
+                    margin-bottom: 3.8%;
+                    @include font(0.06em, 130%);
+                    @media only screen and (max-width: 767px) {
+                        text-align: center;
+                        }
+                        @media only screen and (min-width: 1280px) {
+                            font-size: 35px;
+                        }
+                        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                            font-size: 4.17vw;
+                            }
+                            @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                font-size: 7.8125vw;
+                                }
+                                @media only screen and (max-width: 319px) {
+                                    font-size: 25px;
+                                    }
+                }
+                .type{
+                    width: 100%;
+                    height: 6.35%;
+                    margin-bottom: 10%;
+                    @include font(0.06em, 115%);
+                    @media only screen and (max-width: 767px) {
+                        text-align: center;
+                        }
+                        @media only screen and (min-width: 1280px) {
+                            font-size: 20px;
+                        }
+                        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                            font-size: 2.6vw;
+                            margin-bottom: 5%;
+                            }
+                            @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                font-size: 6.25vw;
+                                }
+                                @media only screen and (max-width: 319px) {
+                                    font-size: 20px;
+                                    }
+                }
+                .description{
+                    width: 100%;
+                    height: 28.177%;
+                    margin-bottom: 10%;
+                    font-size: 15px;
+                    @include font(0.06em, 100%);
+                    @media only screen and (min-width: 1280px) {
+                        font-size: 15px;
+                    }
+                    @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                        font-size: 1.6927vw;
+                        height: 32.34%;
+                        }
+                        @media only screen and (min-width: 320px)and (max-width: 767px) {
+                            font-size: 4.0625vw;
+                            }
+                            @media only screen and (max-width: 319px) {
+                                font-size: 13px;
+                                }
+                }
+                ul{
+                    width: 100%;
+                    height: auto;
+                    margin-left: 5%;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: space-between;
+                    @media only screen and (max-width: 1279px) {
+                        margin-left: 7%
+                    }
+                    li{
+                        height: auto;
+                        @media only screen and (min-width: 1280px) {
+                            font-size: 15px;
+                        }
+                        @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                            font-size: 1.6927vw;
+                            height: 32.34%;
+                            }
+                            @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                font-size: 4.0625vw;
+                                }
+                                @media only screen and (max-width: 319px) {
+                                    font-size: 13px;
+                                    }
+                        span{
+                            @media only screen and (min-width: 1280px) {
+                                font-size: 15px;
+                            }
+                            @media only screen and (min-width: 768px) and (max-width: 1279px) {
+                                font-size: 1.6927vw;
+                                height: 32.34%;
+                                }
+                                @media only screen and (min-width: 320px)and (max-width: 767px) {
+                                    font-size: 4.0625vw;
+                                    }
+                                    @media only screen and (max-width: 319px) {
+                                        font-size: 13px;
+                                        }
+                        }
+                    }
+                }  
+            }        
+        }
+    }
+    
+
+.popup.active { 
+    transform: translate(-50%, -50%) scale(1); 
+    transition: 0.5s all;
+    cursor: default;
+}
